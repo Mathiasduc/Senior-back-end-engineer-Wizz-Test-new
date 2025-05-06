@@ -130,3 +130,125 @@ describe('GET /api/games', () => {
   });
 });
 
+/**
+ * Testing search games endpoint
+ */
+describe('POST /api/games/search', () => {
+  // First create some test data
+  before((done) => {
+    const testGames = [
+      {
+        publisherId: '1234567890',
+        name: 'Test Game 1',
+        platform: 'ios',
+        storeId: '1234',
+        bundleId: 'test.bundle.id1',
+        appVersion: '1.0.0',
+        isPublished: true,
+      },
+      {
+        publisherId: '1234567890',
+        name: 'Test Game 2',
+        platform: 'android',
+        storeId: '5678',
+        bundleId: 'test.bundle.id2',
+        appVersion: '1.0.0',
+        isPublished: true,
+      },
+      {
+        publisherId: '1234567890',
+        name: 'Ios Game',
+        platform: 'ios',
+        storeId: '9012',
+        bundleId: 'test.bundle.id3',
+        appVersion: '1.0.0',
+        isPublished: true,
+      },
+    ];
+
+    // Create test games sequentially
+    const createGames = testGames.reduce(
+      (promiseChain, game) => promiseChain.then(() => request(app)
+        .post('/api/games')
+        .send(game)
+        .set('Accept', 'application/json')),
+      Promise.resolve(),
+    );
+
+    createGames.then(() => done()).catch(done);
+  });
+
+  it('should return all games when no search parameters are provided', (done) => {
+    request(app)
+      .post('/api/games/search')
+      .send({})
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((err, result) => {
+        if (err) return done(err);
+        assert.strictEqual(result.body.length, 3);
+        done();
+      });
+  });
+
+  it('should return games matching the name search', (done) => {
+    request(app)
+      .post('/api/games/search')
+      .send({ name: 'Test' })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((err, result) => {
+        if (err) return done(err);
+        assert.strictEqual(result.body.length, 2);
+        assert(result.body.every((game) => game.name.includes('Test')));
+        done();
+      });
+  });
+
+  it('should return games matching the platform search', (done) => {
+    request(app)
+      .post('/api/games/search')
+      .send({ platform: 'ios' })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((err, result) => {
+        if (err) return done(err);
+        assert.strictEqual(result.body.length, 2);
+        assert(result.body.every((game) => game.platform === 'ios'));
+        done();
+      });
+  });
+
+  it('should return games matching both name and platform search', (done) => {
+    request(app)
+      .post('/api/games/search')
+      .send({ name: 'Test', platform: 'ios' })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((err, result) => {
+        if (err) return done(err);
+        assert.strictEqual(result.body.length, 1);
+        assert.strictEqual(result.body[0].name, 'Test Game 1');
+        assert.strictEqual(result.body[0].platform, 'ios');
+        done();
+      });
+  });
+
+  it('should return empty array when no matches found', (done) => {
+    request(app)
+      .post('/api/games/search')
+      .send({ name: 'NonExistentGame' })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((err, result) => {
+        if (err) return done(err);
+        assert.strictEqual(result.body.length, 0);
+        done();
+      });
+  });
+});
