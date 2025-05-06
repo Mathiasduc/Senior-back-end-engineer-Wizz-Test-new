@@ -1,0 +1,64 @@
+{
+    "games": [
+        {
+            "name": "PUBG Mobile",
+            "platform": "android",
+            "rank": 1,
+            "category": "Action",
+            "rating": 4.5,
+            "downloads": "500M+",
+            "publisherId": "tencent",
+            "storeId": "com.tencent.ig",
+            "bundleId": "com.tencent.ig",
+            "appVersion": "2.9.0"
+        },
+        {
+            "name": "Candy Crush Saga",
+            "platform": "android",
+            "rank": 2,
+            "category": "Puzzle",
+            "rating": 4.4,
+            "downloads": "500M+",
+            "publisherId": "king",
+            "storeId": "com.king.candycrushsaga",
+            "bundleId": "com.king.candycrushsaga",
+            "appVersion": "1.240.0.1"
+        },
+        {
+            "name": "Free Fire",
+            "platform": "android",
+            "rank": 3,
+            "category": "Action",
+            "rating": 4.3,
+            "downloads": "500M+",
+            "publisherId": "garena",
+            "storeId": "com.dts.freefireth",
+            "bundleId": "com.dts.freefireth",
+            "appVersion": "1.98.1"
+        },
+        {
+            "name": "Subway Surfers",
+            "platform": "android",
+            "rank": 4,
+            "category": "Arcade",
+            "rating": 4.4,
+            "downloads": "500M+",
+            "publisherId": "sybo",
+            "storeId": "com.kiloo.subwaysurf",
+            "bundleId": "com.kiloo.subwaysurf",
+            "appVersion": "3.19.0"
+        },
+        {
+            "name": "Temple Run 2",
+            "platform": "android",
+            "rank": 5,
+            "category": "Arcade",
+            "rating": 4.3,
+            "downloads": "500M+",
+            "publisherId": "imangi",
+            "storeId": "com.imangi.templerun2",
+            "bundleId": "com.imangi.templerun2",
+            "appVersion": "1.90.0"
+        }
+    ]
+}

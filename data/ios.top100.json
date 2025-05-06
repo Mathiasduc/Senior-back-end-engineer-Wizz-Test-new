@@ -1,0 +1,64 @@
+{
+    "games": [
+        {
+            "name": "Roblox",
+            "platform": "ios",
+            "rank": 1,
+            "category": "Adventure",
+            "rating": 4.6,
+            "downloads": "100M+",
+            "publisherId": "roblox",
+            "storeId": "431946152",
+            "bundleId": "com.roblox.client",
+            "appVersion": "2.604.0"
+        },
+        {
+            "name": "Candy Crush Saga",
+            "platform": "ios",
+            "rank": 2,
+            "category": "Puzzle",
+            "rating": 4.7,
+            "downloads": "100M+",
+            "publisherId": "king",
+            "storeId": "553834731",
+            "bundleId": "com.king.candycrushsaga",
+            "appVersion": "1.240.0"
+        },
+        {
+            "name": "Minecraft",
+            "platform": "ios",
+            "rank": 3,
+            "category": "Adventure",
+            "rating": 4.5,
+            "downloads": "100M+",
+            "publisherId": "mojang",
+            "storeId": "479516143",
+            "bundleId": "com.mojang.minecraftpe",
+            "appVersion": "1.20.50"
+        },
+        {
+            "name": "Subway Surfers",
+            "platform": "ios",
+            "rank": 4,
+            "category": "Arcade",
+            "rating": 4.4,
+            "downloads": "100M+",
+            "publisherId": "sybo",
+            "storeId": "512939461",
+            "bundleId": "com.kiloo.subwaysurf",
+            "appVersion": "3.19.0"
+        },
+        {
+            "name": "Temple Run 2",
+            "platform": "ios",
+            "rank": 5,
+            "category": "Arcade",
+            "rating": 4.3,
+            "downloads": "100M+",
+            "publisherId": "imangi",
+            "storeId": "572395608",
+            "bundleId": "com.imangi.templerun2",
+            "appVersion": "1.90.0"
+        }
+    ]
+}
